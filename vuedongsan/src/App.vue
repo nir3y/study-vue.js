@@ -5,6 +5,7 @@
       <img :src="원룸들[누른거].image" class="room-img">
       <p>{{원룸들[누른거].content}} </p>
       <p>{{원룸들[누른거].price}}원</p>
+      <TheDiscount/>
       <button @click="모달창열렸니=false">닫기</button>
   </div>
  </div>
@@ -12,6 +13,12 @@
 <div class="menu">
   <a v-for="(a,i) in 메뉴들" :key="i">{{a}}</a>
 </div>
+
+<TheDiscount/>
+
+
+
+
 
 
 
@@ -49,6 +56,9 @@ html 속성도 데이터 바인딩 가능
 */
 
 import data from './assets/oneroom.js';
+import TheDiscount from './TheDiscount.vue';
+
+
 export default {
   name: 'App',
   data(){ //데이터 보관함, 변수같은 것 다 때려넣기
@@ -71,12 +81,20 @@ export default {
   },
 
   components: {
+    TheDiscount,
 
   }
 }
 </script>
 
 <style>
+
+.discount{
+  background: #eee;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
 body{
   margin:0;
 }
