@@ -1,14 +1,6 @@
 <template>
- <div class="black-bg" v-if="모달창열렸니 == true">
-  <div class="white-bg">
-      <h4>{{원룸들[누른거].title}}</h4>
-      <img :src="원룸들[누른거].image" class="room-img">
-      <p>{{원룸들[누른거].content}} </p>
-      <p>{{원룸들[누른거].price}}원</p>
-      <TheDiscount/>
-      <button @click="모달창열렸니=false">닫기</button>
-  </div>
- </div>
+
+<ModalWindow @closeModal="모달창열렸니 = false" :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니"/>
 
 <div class="menu">
   <a v-for="(a,i) in 메뉴들" :key="i">{{a}}</a>
@@ -16,26 +8,15 @@
 
 <TheDiscount/>
 
+<TheCard @openModal="모달창열렸니 = true; 누른거 = $event" :원룸들="원룸들[i]" v-for="(a,i) in 원룸들" :key="i"/>
 
 
 
-
-
-
-
-<!--
-<div v-for="(a,i) in products" :key="i">
-  <h4>{{a}}</h4>
-  <p>50만원</p>
-</div>
-이렇게 축약 가능
--->
-  <div v-for="(a,i) in 원룸들" :key="i">
+<!--div v-for="(a,i) in 원룸들" :key="i">
     <img :src="a.image" class="room-img">
     <h4 @click="모달창열렸니 = true; 누른거 = i">{{a.title}}</h4>
     <p>{{a.price}}원</p>
-    <button @click="increase(i)">허위매물신고</button> <span>신고수 : {{신고수[i]}}</span>
-  </div>
+  </div-->
    
 
 
@@ -56,7 +37,11 @@ html 속성도 데이터 바인딩 가능
 */
 
 import data from './assets/oneroom.js';
+import ModalWindow from './ModalWindow.vue';
 import TheDiscount from './TheDiscount.vue';
+import TheCard from './TheCard.vue';
+
+
 
 
 export default {
@@ -66,7 +51,6 @@ export default {
       누른거:0,
       원룸들:data,
       모달창열렸니: false,
-      신고수:[0,0,0,0,0,0],
       메뉴들:['Home','Shop','About'],
       
 
@@ -74,14 +58,14 @@ export default {
   },
 
   methods : {
-    increase(i){
-      this.신고수[i]++;
-    },
+   
 
   },
 
   components: {
     TheDiscount,
+    ModalWindow,
+    TheCard,
 
   }
 }
