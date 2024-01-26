@@ -1,6 +1,8 @@
 <template>
+<div class="start">
+  <ModalWindow @closeModal="모달창열렸니 = false" :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니"/>
+</div>
 
-<ModalWindow @closeModal="모달창열렸니 = false" :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니"/>
 
 <div class="menu">
   <a v-for="(a,i) in 메뉴들" :key="i">{{a}}</a>
