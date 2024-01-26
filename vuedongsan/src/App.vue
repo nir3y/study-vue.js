@@ -1,7 +1,9 @@
 <template>
-<div class="start">
-  <ModalWindow @closeModal="모달창열렸니 = false" :원룸들="원룸들" :누른거="누른거" :모달창열렸니="모달창열렸니"/>
-</div>
+
+<transition name="fade">
+  <ModalWindow @closeModal="모달창열렸니 = false" :원룸들="원룸들" :누른거="누른거"
+   :모달창열렸니="모달창열렸니"/>
+</transition>
 
 
 <div class="menu">
@@ -74,6 +76,26 @@ export default {
 </script>
 
 <style>
+.fade-enter-from{
+  opacity: 0;
+}
+.fade-enter-active{
+  transition: all 0.5s;
+}
+.fade-enter-to{
+  opacity: 1;
+}
+
+.fade-leave-from{
+  opacity: 1;
+}
+.fade-leave-active{
+  transition: all 0.5s;
+}
+.fade-leave-to{
+  opacity: 0;
+}
+
 
 .discount{
   background: #eee;
@@ -102,7 +124,6 @@ div{
   width:100%;
   margin-top:40px;
 }
-
 
 
 #app {
