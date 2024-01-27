@@ -12,7 +12,9 @@
 
 <TheDiscount/>
 
-<button @click="priceSort">가격순 정렬</button>
+<button @click="priceHighSort">가격높은순 정렬</button>
+<button @click="priceLowSort">가격낮은순 정렬</button>
+<button @click="hanSort">가나다순 정렬</button>
 <button @click="sortBack">되돌리기</button>
 
 <TheCard @openModal="모달창열렸니 = true; 누른거 = $event" :원룸들="원룸들[i]" v-for="(a,i) in 원룸들" :key="i"/>
@@ -66,17 +68,24 @@ export default {
   },
 
   methods : {
-    sortBack(){
-      this.원룸들 = [...this.원룸들오리지널];
+    priceHighSort(){
+      this.원룸들.sort(function(a,b){
+        return b.price - a.price;
+      });
     },
-
-   priceSort(){
+    priceLowSort(){
     this.원룸들.sort(function(a,b){
         return a.price-b.price;
     });
-
-   },
-
+    },
+    hanSort(){
+      this.원룸들.sort(function(a,b){
+        return a.title.localeCompare(b.title);
+      });
+    },
+    sortBack(){
+      this.원룸들 = [...this.원룸들오리지널];
+    },
   },
 
   components: {
