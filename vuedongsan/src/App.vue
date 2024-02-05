@@ -10,7 +10,7 @@
   <a v-for="(a,i) in 메뉴들" :key="i">{{a}}</a>
 </div>
 
-<TheDiscount/>
+<TheDiscount :percent="percent"/>
 
 <button @click="priceHighSort">가격높은순 정렬</button>
 <button @click="priceLowSort">가격낮은순 정렬</button>
@@ -57,6 +57,7 @@ export default {
   name: 'App',
   data(){ //데이터 보관함, 변수같은 것 다 때려넣기
     return{
+      percent:20,
       원룸들오리지널 : [...data],
       누른거:0,
       원룸들:data,
@@ -86,6 +87,15 @@ export default {
     sortBack(){
       this.원룸들 = [...this.원룸들오리지널];
     },
+  },
+
+  mounted(){
+    setInterval(()=>{
+      this.percent--;
+    }, 1000);
+
+    
+
   },
 
   components: {
