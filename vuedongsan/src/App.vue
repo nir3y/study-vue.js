@@ -68,6 +68,7 @@ export default {
     }
   },
 
+  
   methods : {
     priceHighSort(){
       this.원룸들.sort(function(a,b){
@@ -152,6 +153,7 @@ div{
   border-radius: 8px;
   padding:20px;
 }
+
 .room-img{
   width:100%;
   margin-top:40px;
