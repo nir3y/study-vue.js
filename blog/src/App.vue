@@ -37,7 +37,8 @@
 </nav>
 
 <router-link to="/">홈페이지</router-link>
-<router-link to="/BlogList">블로그리스트페이지</router-link>
+<router-link to="/bloglist">블로그리스트페이지</router-link>
+<router-link to="/thedetail">디테일페이지</router-link>
 
 <router-view :블로그글 = "블로그글"></router-view>
 <!--BlogList :블로그글 = "블로그글"/-->
