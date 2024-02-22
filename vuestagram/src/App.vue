@@ -21,12 +21,13 @@
 
 <script>
 import ContainerSection from './components/ContainerSection.vue';
+import postdata from './assets/postdata';
 
 export default {
   name: "App",
   data(){
     return{
-      
+      인스타데이터:postdata,
 
     }
   },
