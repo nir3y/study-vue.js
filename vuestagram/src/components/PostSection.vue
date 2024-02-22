@@ -2,13 +2,13 @@
   <div class="post">
     <div class="post-header">
       <div class="profile"></div>
-      <span class="profile-name">{{ postdata[0].name }}</span>
+      <span class="profile-name">{{ postdata.name }}</span>
     </div>
-    <div class="post-body"></div>
+    <div class="post-body" :style="{backgroundImage: `url(${postdata.postImage})` }"></div>
     <div class="post-content">
-      <p>{{ postdata[0].likes }} Likes</p>
-      <p><strong>{{ postdata[0].name }}</strong> {{ postdata[0].content }}</p>
-      <p class="date">{{ postdata[0].date }}</p>
+      <p>{{ postdata.likes }} Likes</p>
+      <p><strong>{{ postdata.name }}</strong> {{ postdata.content }}</p>
+      <p class="date">{{ postdata.date }}</p>
     </div>
 </div> 
 </template>

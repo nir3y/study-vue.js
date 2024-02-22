@@ -1,9 +1,8 @@
 <template>
   <div>
-    <PostSection :postdata="postdata" />
-    <PostSection :postdata="postdata" />
-    <PostSection :postdata="postdata" />
-    
+    <PostSection :postdata="item" v-for="(item, index) in postdata" :key="index" />
+
+
   </div>
 </template>
 
@@ -12,21 +11,19 @@ import PostSection from "./PostSection.vue";
 
 
 export default {
-  data()
-  {
-    return{
-      
-      
+  data() {
+    return {
+
+
     }
   },
   components: {
     PostSection,
   },
-  props:{
-    postdata:Array,
+  props: {
+    postdata: Array,
   }
 };
 </script>
 
-<style>
-</style>
+<style></style>
